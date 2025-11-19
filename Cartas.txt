@@ -1,0 +1,114 @@
+NOME,ELIXIR,NIVEL,DANO,VIDA,VELOCIDADE,DPS,ALCANCE,VEL_ATK
+Equeletos,1,11,81,81,0,73,0,1.1
+Espirito de Fogo,1,11,207,230,0,0,2.5,0
+Espirito Eletrico,1,11,99,230,0,0,2.5,0
+Espirito de Gelo,1,11,0,0,0,0,0,0
+Goblins,2,11,0,0,0,0,0,0
+Goblins Lanceiros,2,11,0,0,0,0,0,0
+Bombardeiro,2,11,0,0,0,0,0,0
+Morcegos,2,11,0,0,0,0,0,0
+Zap,2,11,0,0,0,0,0,0
+Bola de Neve,2,11,0,0,0,0,0,0
+Berserker,2,11,0,0,0,0,0,0
+Cavaleiro,3,11,0,0,0,0,0,0
+Arqueiras,3,11,0,0,0,0,0,0
+Servos,3,11,0,0,0,0,0,0
+Flechas,3,11,0,0,0,0,0,0
+Canhao,3,11,0,0,0,0,0,0
+Gangue de Goblins,3,11,0,0,0,0,0,0
+Barril de Esqueletos,3,11,0,0,0,0,0,0
+Pirotecnica,3,11,0,0,0,0,0,0
+Encomenda Real,3,11,0,0,0,0,0,0
+Dragoes Esqueleto,4,11,0,0,0,0,0,0
+Morteiro,4,11,0,0,0,0,0,0
+Tesla,4,11,0,0,0,0,0,0
+Barbaros,5,11,0,0,0,0,0,0
+Horda de Servos,5,11,0,0,0,0,0,0
+Patifes,5,11,0,0,0,0,0,0
+Gigante Real,6,11,0,0,0,0,0,0
+Barbaros de Elite,6,11,0,0,0,0,0,0
+Recrutas Reais,7,11,0,0,0,0,0,0
+Espirito Curador,1,11,0,0,0,0,0,0
+Golem de Gelo,2,11,0,0,0,0,0,0
+Arbusto Traicoeiro,2,11,0,0,0,0,0,0
+Lapide,3,11,0,0,0,0,0,0
+Megasservo,3,11,0,0,0,0,0,0
+Goblin com Dardo,3,11,0,0,0,0,0,0
+Terremoto,3,11,0,0,0,0,0,0
+Golem de Elixir,3,11,0,0,0,0,0,0
+Mosqueteira,4,11,0,0,0,0,0,0
+Mini P.E.K.K.A,4,11,0,0,0,0,0,0
+Cabana de Goblins,4,11,0,0,0,0,0,0
+Jaula de Goblin,4,11,0,0,0,0,0,0
+Bola de Fogo,4,11,0,0,0,0,0,0
+Valquiria,4,11,0,0,0,0,0,0
+Ariete de Batalha,4,11,0,0,0,0,0,0
+Torre de Bombas,4,11,0,0,0,0,0,0
+Corredor,4,11,0,0,0,0,0,0
+Maquina Voadora,4,11,0,0,0,0,0,0
+Curadora Guerreira,4,11,0,0,0,0,0,0
+Eletrocutadores,4,11,0,0,0,0,0,0
+Fornalha,4,11,0,0,0,0,0,0
+Goblin Demolidor,4,11,0,0,0,0,0,0
+Gigante,5,11,0,0,0,0,0,0
+Mago,5,11,0,0,0,0,0,0
+Torre Inferno,5,11,0,0,0,0,0,0
+Porcos Reais,5,11,0,0,0,0,0,0
+Foguete,6,11,0,0,0,0,0,0
+Cabana de Barbaros,6,11,0,0,0,0,0,0
+Coletor de Elixir,6,11,0,0,0,0,0,0
+Tres Mosqueteiras,9,11,0,0,0,0,0,0
+Espelho,0,11,0,0,0,0,0,0
+Barril de Barbaro,2,11,0,0,0,0,0,0
+Destruidores de Muros,2,11,0,0,0,0,0,0
+Furia,2,11,0,0,0,0,0,0
+Maldicao Goblin,2,11,0,0,0,0,0,0
+Exercito de Esqueletos,3,11,0,0,0,0,0,0
+Guardas,3,11,0,0,0,0,0,0
+Barril de Goblins,3,11,0,0,0,0,0,0
+Vinhas,3,11,0,0,0,0,0,0
+Tornado,3,11,0,0,0,0,0,0
+Clone,3,11,0,0,0,0,0,0
+Vacuo,3,11,0,0,0,0,0,0
+Bebe Dragao,4,11,0,0,0,0,0,0
+Principe das Trevas,4,11,0,0,0,0,0,0
+Gelo,4,11,0,0,0,0,0,0
+Gigante das Runas,4,11,0,0,0,0,0,0
+Veneno,4,11,0,0,0,0,0,0
+Cacador,4,11,0,0,0,0,0,0
+Escavadeira de Goblins,4,11,0,0,0,0,0,0
+Bruxa,5,11,0,0,0,0,0,0
+Balao,5,11,0,0,0,0,0,0
+Principe,5,11,0,0,0,0,0,0
+Dragao Eletrico,5,11,0,0,0,0,0,0
+Lancador,5,11,0,0,0,0,0,0
+Executor,5,11,0,0,0,0,0,0
+Carrinho de Canhao,5,11,0,0,0,0,0,0
+Esqueleto Gigante,6,11,0,0,0,0,0,0
+Relampago,6,11,0,0,0,0,0,0
+Goblin Gigante,6,11,0,0,0,0,0,0
+X-Besta,6,11,0,0,0,0,0,0
+P.E.K.K.A,6,11,0,0,0,0,0,0
+Gigante Eletrico,7,11,0,0,0,0,0,0
+Golem,8,11,0,0,0,0,0,0
+O Tronco,2,11,0,0,0,0,0,0
+Princesa,3,11,0,0,0,0,0,0
+Mineiro,3,11,0,0,0,0,0,0
+Mago de Gelo,3,11,0,0,0,0,0,0
+Fantasma Real,3,11,0,0,0,0,0,0
+Bandida,3,11,0,0,0,0,0,0
+Pescador,3,11,0,0,0,0,0,0
+Dragao Infernal,4,11,0,0,0,0,0,0
+Mago Eletrico,4,11,0,0,0,0,0,0
+Fenix,4,11,0,0,0,0,0,0
+Arqueiro Magico,4,11,0,0,0,0,0,0
+Lenhador,4,11,0,0,0,0,0,0
+Bruxa Sombria,4,11,0,0,0,0,0,0
+Bruxa Mae,4,11,0,0,0,0,0,0
+Domadora de Carneiro,5,11,0,0,0,0,0,0
+Cemiterio,5,11,0,0,0,0,0,0
+Maquina de Goblin,5,11,0,0,0,0,0,0
+Sparky,6,11,0,0,0,0,0,0
+Imperatriz Espiritual,6,11,0,0,0,0,0,0
+Megacavaleiro,7,11,0,0,0,0,0,0
+Lava Hound,7,11,0,0,0,0,0,0
