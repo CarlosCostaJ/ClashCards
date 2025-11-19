@@ -1,9 +1,8 @@
 package classes;
 
 public enum Raridade {
-    COMUN,
+    COMUM,
     RARA,
-    ÉPICA,
-    LENDÁRIA,
-    CAMPEÃO;
+    EPICA,
+    LENDARIA,
 }

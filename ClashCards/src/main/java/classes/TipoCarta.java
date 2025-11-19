@@ -1,7 +1,7 @@
 package classes;
 
 public enum TipoCarta {
-    CONSTRUÇÃO,
-    FEITIÇO,
+    CONSTRUCAO,
+    FEITICO,
     TROPA;
 }

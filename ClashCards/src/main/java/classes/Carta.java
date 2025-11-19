@@ -10,8 +10,12 @@ public class Carta {
     private double danoPSegundo;
     private double alcance;
     private double velocidadeImpacto;
+    private TipoCarta tipo;
+    private Raridade raridade;
 
-    public Carta(String nome, int custoElixir, int nivel, int dano, int vida, int velocidade, double danoPSegundo, double alcance, double velocidadeImpacto) {
+    public Carta(String nome, int custoElixir, int nivel, int dano, int vida, int velocidade,
+                 double danoPSegundo, double alcance, double velocidadeImpacto,
+                 TipoCarta tipo, Raridade raridade) { // Recebe Enums
         this.nome = nome;
         this.custoElixir = custoElixir;
         this.nivel = nivel;
@@ -21,25 +25,17 @@ public class Carta {
         this.danoPSegundo = danoPSegundo;
         this.alcance = alcance;
         this.velocidadeImpacto = velocidadeImpacto;
+        this.tipo = tipo;
+        this.raridade = raridade;
     }
 
-    @Override
     public String toString() {
-        return "Carta: [" +
-                "Nome='" + this.nome + '\'' +
-                ", Elixir=" + this.custoElixir +
-                ", Nível=" + this.nivel +
-                ", Dano=" + this.getDano() +
-                ", Vida=" + this.getVida() +
-                ", Velocidade='" + this.getVelocidade() + '\'' +
-                ", DPS=" + this.getDanoPSegundo() +
-                ", Alcance='" + this.getAlcance() + '\'' +
-                ", Vel. Impacto=" + this.getVelocidadeImpacto() +
-                "]";
+        String var10000 = this.nome;
+        return "Carta: [Nome='" + var10000 + "', Elixir=" + this.custoElixir + ", Nível=" + this.nivel + ", Dano=" + this.getDano() + ", Vida=" + this.getVida() + ", Velocidade='" + this.getVelocidade() + "', DPS=" + this.getDanoPSegundo() + ", Alcance='" + this.getAlcance() + "', Vel. Impacto=" + this.getVelocidadeImpacto() + "]";
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -47,7 +43,7 @@ public class Carta {
     }
 
     public int getCustoElixir() {
-        return custoElixir;
+        return this.custoElixir;
     }
 
     public void setCustoElixir(int custoElixir) {
@@ -55,7 +51,7 @@ public class Carta {
     }
 
     public int getNivel() {
-        return nivel;
+        return this.nivel;
     }
 
     public void setNivel(int nivel) {
@@ -63,7 +59,7 @@ public class Carta {
     }
 
     public int getDano() {
-        return dano;
+        return this.dano;
     }
 
     public void setDano(int dano) {
@@ -71,7 +67,7 @@ public class Carta {
     }
 
     public int getVida() {
-        return vida;
+        return this.vida;
     }
 
     public void setVida(int vida) {
@@ -79,7 +75,7 @@ public class Carta {
     }
 
     public int getVelocidade() {
-        return velocidade;
+        return this.velocidade;
     }
 
     public void setVelocidade(int velocidade) {
@@ -87,7 +83,7 @@ public class Carta {
     }
 
     public double getDanoPSegundo() {
-        return danoPSegundo;
+        return this.danoPSegundo;
     }
 
     public void setDanoPSegundo(double danoPSegundo) {
@@ -95,7 +91,7 @@ public class Carta {
     }
 
     public double getAlcance() {
-        return alcance;
+        return this.alcance;
     }
 
     public void setAlcance(double alcance) {
@@ -103,10 +99,26 @@ public class Carta {
     }
 
     public double getVelocidadeImpacto() {
-        return velocidadeImpacto;
+        return this.velocidadeImpacto;
     }
 
     public void setVelocidadeImpacto(double velocidadeImpacto) {
         this.velocidadeImpacto = velocidadeImpacto;
+    }
+
+    public TipoCarta getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoCarta tipo) {
+        this.tipo = tipo;
+    }
+
+    public Raridade getRaridade() {
+        return raridade;
+    }
+
+    public void setRaridade(Raridade raridade) {
+        this.raridade = raridade;
     }
 }
