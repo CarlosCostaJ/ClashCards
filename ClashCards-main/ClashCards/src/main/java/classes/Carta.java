@@ -27,17 +27,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        return "Carta: [" +
-                "Nome='" + this.nome + '\'' +
-                ", Elixir=" + this.custoElixir +
-                ", Nível=" + this.nivel +
-                ", Dano=" + this.getDano() +
-                ", Vida=" + this.getVida() +
-                ", Velocidade='" + this.getVelocidade() + '\'' +
-                ", DPS=" + this.getDanoPSegundo() +
-                ", Alcance='" + this.getAlcance() + '\'' +
-                ", Vel. Impacto=" + this.getVelocidadeImpacto() +
-                "]";
+        return nome + " (Elixir: " + custoElixir + ")";
     }
 
     public String getNome() {
