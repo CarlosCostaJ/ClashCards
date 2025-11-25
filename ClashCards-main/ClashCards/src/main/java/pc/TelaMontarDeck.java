@@ -2,114 +2,108 @@ package pc;
 
 import classes.Baralho;
 import classes.Carta;
+import data.DeckDAO;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class TelaMontarDeck {
 
-    private Baralho baralho = new Baralho();
-    private Label labelCusto;
+    private VBox root;
+    private Baralho deck = new Baralho();
     private GridPane gridDeck;
+    private Label lblCusto;
+    private List<Carta> todasCartas;
+    private DeckDAO deckDAO;
+    private String pastaProjeto;
 
-    public void mostrar(Stage stage, List<Carta> cartasDisponiveis) {
+    public TelaMontarDeck(String pastaProjeto, List<Carta> todasCartas, DeckDAO deckDAO) {
+        this.pastaProjeto = pastaProjeto;
+        this.todasCartas = todasCartas;
+        this.deckDAO = deckDAO;
+        criarLayout();
+        atualizarDeck();
+    }
 
-        ListView<Carta> listView = new ListView<>();
-        listView.getItems().addAll(cartasDisponiveis);
-        listView.setPrefWidth(250);
+    public VBox getLayout() { return root; }
 
-        listView.setOnMouseClicked(event -> {
-            Carta selecionada = listView.getSelectionModel().getSelectedItem();
-            if (selecionada != null) {
-                adicionarCarta(selecionada);
+    private void criarLayout() {
+        root = new VBox(10);
+        root.setAlignment(Pos.CENTER);
+
+        ListView<Carta> lv = new ListView<>();
+        lv.getItems().addAll(todasCartas);
+        lv.setPrefWidth(250);
+
+        lv.setOnMouseClicked(e -> {
+            Carta sel = lv.getSelectionModel().getSelectedItem();
+            if (sel != null) {
+                boolean ok = deck.adicionarCarta(sel);
+                if (!ok) {
+                    new Alert(Alert.AlertType.WARNING, "Não é possível adicionar (repetida ou deck cheio)").showAndWait();
+                }
+                atualizarDeck();
             }
         });
 
         gridDeck = new GridPane();
-        gridDeck.setHgap(10);
-        gridDeck.setVgap(10);
-        gridDeck.setAlignment(Pos.CENTER);
+        gridDeck.setHgap(8); gridDeck.setVgap(8);
 
-        labelCusto = new Label("Custo médio: 0.0");
+        lblCusto = new Label("Custo médio: 0.0");
 
-        Button btnLimpar = new Button("Limpar Deck");
-        btnLimpar.setOnAction(e -> {
-            baralho.getCartas().clear();
-            atualizarDeck();
+        Button btnLimpar = new Button("Limpar");
+        Button btnSalvar = new Button("Salvar Deck");
+
+        btnLimpar.setOnAction(e -> { deck.limpar(); atualizarDeck(); });
+
+        btnSalvar.setOnAction(e -> {
+            if (!deck.isCompleto()) {
+                new Alert(Alert.AlertType.WARNING, "Deck precisa ter exatamente 8 cartas").showAndWait();
+                return;
+            }
+            TextInputDialog td = new TextInputDialog("MeuDeck");
+            td.setTitle("Salvar Deck");
+            td.setHeaderText("Nome do deck");
+            td.showAndWait().ifPresent(nome -> {
+                deck.setNome(nome);
+                List<Baralho> lista = new ArrayList<>();
+                lista.add(deck);
+                deckDAO.salvarDecks(lista);
+                new Alert(Alert.AlertType.INFORMATION, "Deck salvo").showAndWait();
+            });
         });
 
-        HBox areaCentral = new HBox(25, listView, gridDeck);
-        areaCentral.setAlignment(Pos.CENTER);
+        HBox center = new HBox(12, lv, gridDeck);
+        center.setAlignment(Pos.CENTER);
 
-        VBox root = new VBox(20, areaCentral, labelCusto, btnLimpar);
-        root.setAlignment(Pos.CENTER);
+        HBox botoes = new HBox(8, btnSalvar, btnLimpar);
+        botoes.setAlignment(Pos.CENTER);
 
-        Scene cena = new Scene(root, 800, 500);
-        stage.setScene(cena);
-        stage.show();
-
-        atualizarDeck();
-    }
-
-
-    private void adicionarCarta(Carta carta) {
-        if (baralho.getCartas().size() >= 8) {
-            mostrarAviso("O deck já tem 8 cartas!");
-            return;
-        }
-
-        if (baralho.getCartas().contains(carta)) {
-            mostrarAviso("Essa carta já foi adicionada!");
-            return;
-        }
-
-        baralho.adicionarCarta(carta);
-        atualizarDeck();
-    }
-
-    private void removerCarta(int index) {
-        if (index < baralho.getCartas().size()) {
-            baralho.getCartas().remove(index);
-            atualizarDeck();
-        }
+        root.getChildren().addAll(center, lblCusto, botoes);
     }
 
     private void atualizarDeck() {
         gridDeck.getChildren().clear();
-
         for (int i = 0; i < 8; i++) {
-
             Label slot = new Label();
-            slot.setPrefSize(120, 120);
-            slot.setStyle("-fx-border-color: black; -fx-background-color: #eeeeee;");
+            slot.setPrefSize(110, 80);
+            slot.setStyle("-fx-border-color:black; -fx-background-color:#f3f3f3;");
             slot.setAlignment(Pos.CENTER);
-
-            if (i < baralho.getCartas().size()) {
-                Carta c = baralho.getCartas().get(i);
+            if (i < deck.getCartas().size()) {
+                Carta c = deck.getCartas().get(i);
                 slot.setText(c.getNome());
+                final int idx = i;
+                slot.setOnMouseClicked(ev -> {
+                    deck.removerCarta(deck.getCartas().get(idx));
+                    atualizarDeck();
+                });
             } else {
                 slot.setText("Vazio");
             }
-
-            final int index = i;
-            slot.setOnMouseClicked(e -> removerCarta(index));
-
             gridDeck.add(slot, i % 4, i / 4);
         }
-
-        double custo = baralho.getCustoMedioElixir();
-        labelCusto.setText("Custo médio: " + String.format("%.1f", custo));
-    }
-
-    private void mostrarAviso(String texto) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Aviso");
-        alert.setHeaderText(null);
-        alert.setContentText(texto);
-        alert.showAndWait();
+        lblCusto.setText(String.format("Custo médio: %.1f", deck.getCustoMedioElixir()));
     }
 }
